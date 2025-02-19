@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <name>Pebble Draw Command PNG</name>
+    <id>org.inkscape.output.pdc_png_inkscape</id>
+
+    <param name="tab" type="notebook">
+        <page name="Output" gui-text="SVG Output">
+            <label appearance="header">Document options</label>
+            <param gui-text="Color Watch Mode"
+                   gui-description="Ouputs a colorful image"
+                   name="platform" type="bool">true</param>
+            <param gui-text="No Antialiasing"
+                   gui-description="Disables antialiasing for color watches"
+                   name="no-antialiasing" type="bool">false</param>
+            <param gui-text="Background Color"
+                   gui-description="Sets the background color behind the pdc"
+                   name="background-color" type="optiongroup" appearance="combo">
+                <option value="black">Black</option>
+                <option value="oxford-blue">Oxford Blue</option>
+                <option value="duke-blue">Duke Blue</option>
+                <option value="blue">Blue</option>
+                <option value="dark-green">Dark Green</option>
+                <option value="midnight-green">Midnight Green</option>
+                <option value="cobalt-blue">Cobalt Blue</option>
+                <option value="blue-moon">Blue Moon</option>
+                <option value="islamic-green">Islamic Green</option>
+                <option value="jaeger-green">Jaeger Green</option>
+                <option value="tiffany-blue">Tiffany Blue</option>
+                <option value="vivid-cerulean">Vivid Cerulean</option>
+                <option value="green">Green</option>
+                <option value="malachite">Malachite</option>
+                <option value="medium-spring-green">Medium Spring Green</option>
+                <option value="cyan">Cyan</option>
+                <option value="bulgarian-rose">Bulgarian Rose</option>
+                <option value="imperial-purple">Imperial Purple</option>
+                <option value="indigo">Indigo</option>
+                <option value="electric-ultramarine">Electic Ultramarine</option>
+                <option value="army-green">Army Green</option>
+                <option value="dark-gray">Dark Gray</option>
+                <option value="liberty">Liberty</option>
+                <option value="very-light-blue">Very Light Blue</option>
+                <option value="kelly-green">Kelly Green</option>
+                <option value="may-green">May Green</option>
+                <option value="cadet-blue">Cadet Blue</option>
+                <option value="picton-blue" default="true">Picton Blue</option>
+                <option value="bright-green">Bright Green</option>
+                <option value="screamin-green">Screamin Green</option>
+                <option value="medium-aquamarine">Medium Aquamarine</option>
+                <option value="electric-blue">Electric Blue</option>
+                <option value="dark-candy-apple-red">Dark Candy Apple Red</option>
+                <option value="jazzberry-jam">Jazzberry Jam</option>
+                <option value="purple">Purple</option>
+                <option value="vivid-violet">Vivid Violet</option>
+                <option value="windsor-tan">Windsor Tan</option>
+                <option value="rose-vale">Rose Vale</option>
+                <option value="purpureus">Purpureus</option>
+                <option value="lavender-indigo">Lavender Indigo</option>
+                <option value="limerick">Limerick</option>
+                <option value="brass">Brass</option>
+                <option value="light-gray">Light Gray</option>
+                <option value="baby-blue-eyes">Baby Blue Eyes</option>
+                <option value="spring-bud">Spring Bud</option>
+                <option value="inchworm">Inchworm</option>
+                <option value="mint-green">Mint Green</option>
+                <option value="celeste">Celeste</option>
+                <option value="red">Red</option>
+                <option value="folly">Folly</option>
+                <option value="fashion-magenta">Fashion Magenta</option>
+                <option value="magenta">Magenta</option>
+                <option value="orange">Orange</option>
+                <option value="sunset-orange">Sunset Orange</option>
+                <option value="brilliant-rose">Brilliant Rose</option>
+                <option value="shocking-pink">Shocking Pink</option>
+                <option value="chrome-yellow">Chrome Yellow</option>
+                <option value="rajah">Rajah</option>
+                <option value="melon">Melon</option>
+                <option value="rich-brilliant-lavender">Rich Brilliant Lavender</option>
+                <option value="yellow">Yellow</option>
+                <option value="icterine">Icterine</option>
+                <option value="pastel-yellow">Pastel Yellow</option>
+                <option value="white">White</option>
+            </param>
+            <param gui-text="Top Left Margin"
+                   gui-description="Offset at which the pdc will be drawn away from the border"
+                   name="offset" type="int">5</param>
+        </page>
+        <page name="About" gui-text="About">
+            <hbox>
+                <vbox>
+                    <spacer/>
+                    <label>Output is generated by</label>
+                    <label appearance="header" indent="1">pdc_tool</label>
+                    <spacer/>
+                    <label>For details please refer to</label>
+                    <label appearance="url" indent="1">https://github.com/HBehrens/pdc_tool</label>
+                </vbox>
+            </hbox>
+        </page>
+    </param>
+
+    <output savecopyonly="true" is_exported="true">
+        <extension>.png</extension>
+        <mimetype>image/png</mimetype>
+        <filetypename>PDC PNG (*.png)</filetypename>
+        <filetypetooltip>Pebble Draw Command PNG</filetypetooltip>
+        <dataloss>true</dataloss>
+    </output>
+
+    <script>
+        <command location="inx" interpreter="python">output_pdc_png.py</command>
+    </script>
+</inkscape-extension>
