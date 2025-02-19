@@ -2,8 +2,7 @@
 """
 Run the pdc module on the svg output.
 """
-import subprocess
-import tempfile
+from pdc_converter import PDCConverter
 
 import inkex
 
@@ -16,22 +15,17 @@ class PdcPngInkscape(inkex.OutputExtension):
         pars.add_argument("--no-antialiasing", type=inkex.Boolean, dest="no_antialiasing")
         pars.add_argument("--background-color", dest="background_color")
         pars.add_argument("--offset", type=int, dest="offset")
+        pars.add_argument("--crop", type=inkex.Boolean, dest="crop")
 
     def save(self, stream):
-        infile = tempfile.NamedTemporaryFile(delete_on_close=False)
-        infile.write(self.svg.tostring())
-        infile.close()
-        outfile = tempfile.NamedTemporaryFile()
-        platform = "basalt" if self.options.platform else "aplite"
-        command = ["./pdc_tool", infile.name, "png", outfile.name,
-                   f"--platform={platform}",
-                   f"--background-color={self.options.background_color}",
-                   f"--offset={self.options.offset},{self.options.offset}"]
-        if self.options.no_antialiasing:
-            command.append('--no-antialiasing')
-        subprocess.run(command)
-        stream.write(outfile.read())
-        outfile.close()
+        pdc = PDCConverter(self.svg, self.options)
+
+        if self.options.crop:
+            pdc.crop([0, 0,
+                      self.svg.viewport_width + (2 * self.options.offset),
+                      self.svg.viewport_height + (2 * self.options.offset)])
+
+        stream.write(pdc.to_png())
 
 if __name__ == "__main__":
     PdcPngInkscape().run()

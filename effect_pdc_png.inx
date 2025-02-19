@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-    <name>Pebble Draw Command PNG</name>
-    <id>org.inkscape.output.pdc_png_inkscape</id>
+    <name>Pebble Draw Command Preview</name>
+    <id>org.inkscape.output.pdc_png_inkscape_effect</id>
 
     <param name="tab" type="notebook">
         <page name="Output" gui-text="SVG Output">
@@ -80,9 +80,6 @@
                 <option value="pastel-yellow">Pastel Yellow</option>
                 <option value="white">White</option>
             </param>
-            <param gui-text="Crop"
-                   gui-description="Crops the image to the dimensions of the canvas + margin"
-                   name="crop" type="bool">true</param>
             <param gui-text="Margin"
                    gui-description="Offset at which the pdc will be drawn away from the border"
                    name="offset" type="int">5</param>
@@ -100,16 +97,14 @@
             </hbox>
         </page>
     </param>
-
-    <output savecopyonly="true" is_exported="true">
-        <extension>.png</extension>
-        <mimetype>image/png</mimetype>
-        <filetypename>PDC PNG (*.png)</filetypename>
-        <filetypetooltip>Pebble Draw Command PNG</filetypetooltip>
-        <dataloss>true</dataloss>
-    </output>
-
+    <effect>
+        <object-type>all</object-type>
+        <effects-menu>
+            <submenu name="Render"/>
+        </effects-menu>
+    </effect>
     <script>
-        <command location="inx" interpreter="python">output_pdc_png.py</command>
+        <command location="inx" interpreter="python">effect_pdc_png.py</command>
     </script>
 </inkscape-extension>
+
