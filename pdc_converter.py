@@ -1,6 +1,7 @@
 import tempfile
 import subprocess
 import io
+import sys
 from PIL import Image
 
 class PDCConverter:
@@ -28,7 +29,8 @@ class PDCConverter:
             if self.options.no_antialiasing:
                 command.append("--no-antialiasing")
 
-            subprocess.run(command, check=True)
+            messages = subprocess.run(command, check=True, capture_output=True)
+            sys.stderr.write(messages.stderr.decode(sys.stderr.encoding))
             self.png = outfile.read()
 
         return self

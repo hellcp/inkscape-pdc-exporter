@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <name>Pebble Draw Command</name>
+    <id>org.inkscape.output.pdc_inkscape</id>
+
+    <output savecopyonly="true" is_exported="true">
+        <extension>.pdc</extension>
+        <mimetype>image/pdc</mimetype>
+        <filetypename>PDC (*.pdc)</filetypename>
+        <filetypetooltip>Pebble Draw Command</filetypetooltip>
+        <dataloss>true</dataloss>
+    </output>
+
+    <script>
+        <command location="inx" interpreter="python">output_pdc.py</command>
+    </script>
+</inkscape-extension>
