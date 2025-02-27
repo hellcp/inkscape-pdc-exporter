@@ -28,6 +28,8 @@ class PDCConverter:
             ]
             if self.options.no_antialiasing:
                 command.append("--no-antialiasing")
+            if self.options.sunlight_colors:
+                command.append("--sunlight-colors")
 
             messages = subprocess.run(command, check=True, capture_output=True)
             sys.stderr.write(messages.stderr.decode(sys.stderr.encoding))

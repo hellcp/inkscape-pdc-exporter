@@ -12,6 +12,9 @@
             <param gui-text="No Antialiasing"
                    gui-description="Disables antialiasing for color watches"
                    name="no-antialiasing" type="bool">false</param>
+            <param gui-text="Simulate Sunlight"
+                   gui-description="Corrects the colors to appear as they would on a watch in the sunlight"
+                   name="sunlight-colors" type="bool">false</param>
             <param gui-text="Background Color"
                    gui-description="Sets the background color behind the pdc"
                    name="background-color" type="optiongroup" appearance="combo">

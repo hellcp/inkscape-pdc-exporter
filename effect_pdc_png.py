@@ -19,6 +19,7 @@ class PdcPngEffectInkscape(inkex.EffectExtension):
         pars.add_argument("--tab")
         pars.add_argument("--platform", type=inkex.Boolean, dest="platform")
         pars.add_argument("--no-antialiasing", type=inkex.Boolean, dest="no_antialiasing")
+        pars.add_argument("--sunlight-colors", type=inkex.Boolean, dest="sunlight_colors")
         pars.add_argument("--background-color", dest="background_color")
         pars.add_argument("--offset", type=int, dest="offset")
 
